@@ -1,6 +1,7 @@
 import uproot
 import pandas as pd
 import numpy as np
+from pathlib import Path
 
 
 def transform_root_to_dataframe(path, folder, fileName):
@@ -35,6 +36,9 @@ def transform_root_to_dataframe(path, folder, fileName):
 
         # Convert np array (final) to the desired dataframe
         final_df = pd.DataFrame(final, columns=keys)
+
+        # Create folder in which the dataframe should be saved if it does not yet exist
+        Path(folder).mkdir(parents=True, exist_ok=True)
 
         # Save dataframe as feather file, this can be exchanged as wanted
         # e.g. final_df.to_pickle(folder + "/" + fileName + ".pkl") would save the dataframe as a pickle file

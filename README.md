@@ -12,6 +12,7 @@ An example root file containing 100 events lies in Data/Root.
 - numpy
 - pandas
 - pyarrow
+- pathlib
 
 ## Running the code
 
